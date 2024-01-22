@@ -42,8 +42,8 @@ def write_to_file(words, filename='generated_words.txt'):
 start_time = time.time()
 
 # Example: Generate 20 words and write them to a file
-generated_words = generate_words(100)
-write_to_file(generated_words, "tesstrain\words.txt")
+generated_words = generate_words(20000)
+write_to_file(generated_words, "words.txt")
 
 end_time = time.time()
 execution_time = end_time - start_time

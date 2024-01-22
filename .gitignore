@@ -2,4 +2,8 @@
 pyenv.cfg
 Lib/
 Scripts/
+src/tesstrain/data/
+Src/tesseract/
+.DS_Store
+.idea/
 

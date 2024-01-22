@@ -11,15 +11,15 @@ with open(training_text_file, 'r') as input_file:
     for line in input_file.readlines():
         lines.append(line.strip())
 
-output_directory = 'tesstrain/data/soi-ground-truth'
-fonts_directory = 'C:\\Windows\\Fonts'
+output_directory = 'tesstrain/data/soi-test-data'
+
 
 if not os.path.exists(output_directory):
     os.mkdir(output_directory)
 
 random.shuffle(lines)
 
-count = 100
+count = 20000
 
 lines = lines[:count]
 
@@ -34,7 +34,6 @@ for line in lines:
 
     subprocess.run([
         'text2image',
-        f'--fonts_dir={fonts_directory}',
         '--font=Monospac821 BT',
         f'--text={line_training_text}',
         f'--outputbase={output_directory}/{file_base_name}',
@@ -49,3 +48,7 @@ for line in lines:
     ])
 
     line_count += 1
+
+
+# TESSDATA_PREFIX=../tesseract/tessdata make training MODEL_NAME=soi START_MODEL=eng TESSDATA=../tesseract/tessdata MAX_ITERATIONS=1000
+# TESSDATA_PREFIX=../tesseract/tessdata TESSDATA=../tesseract/tessdata make training MODEL_NAME=soi
